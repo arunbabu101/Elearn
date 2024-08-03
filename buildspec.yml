@@ -1,27 +1,24 @@
 version: 0.2
 
-# environment_variables:
-  # plaintext:
-  #   DJANGO_SETTINGS_MODULE: config.settings.test
-  #   SECRET_KEY: nosecret
-  #   DATABASE_DEFAULT_URL: sqlite:///db1.sqlite3
-  #   DATABASE_STREAMDATA_URL: sqlite:///db2.sqlite3
-  #   STREAM_INCOMING_PRIVATE_KEY: changeme
-  #   STREAM_INCOMING_PUBLIC_KEY: changeme
-  #   GOOGLE_API_KEY: changeme
-  #   OPBEAT_ENABLED: False
-
 phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - pip install --upgrade pip setuptools
+      - apt-get update
+      - apt-get install -y build-essential python3-dev libfreetype6-dev liblcms2-dev libjpeg8-dev libopenjp2-7-dev libtiff5-dev tcl8.6-dev tk8.6-dev python3-tk
   pre_build:
     commands:
-      - echo Prebuild ops
-      - pip3 install -r requirements.txt
+      - pip install -r requirements.txt
   build:
     commands:
-      - echo Building the application 
+      - echo Build phase
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Post-build phase
+
 artifacts:
   files:
     - '**/*'
+  base-directory: build
