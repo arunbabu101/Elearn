@@ -25,7 +25,7 @@ six==1.15.0
 sqlparse==0.4.1
 urllib3==1.26.2
 webencodings==0.5.1
-whitenoise==5.1.0
+whitenoise
 xhtml2pdf
 razorpay==1.2.0
 twilio==6.51.1
