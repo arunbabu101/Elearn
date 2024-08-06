@@ -3,12 +3,12 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from django.conf.urls import url
+
 
 
 urlpatterns = [
     path('', views.home, name='home'),
-    #Custom admin panel urls
+    #Custom admin panel urlss
     path('webadmin/', views.webadmin, name='webadmin'),
     path('addpost/', views.add_post, name='addpost'),
     path('addcat/', views.add_cat, name='addcat'),
